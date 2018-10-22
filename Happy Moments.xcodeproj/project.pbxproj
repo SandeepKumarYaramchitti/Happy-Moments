@@ -30,6 +30,7 @@
 		E5B4A6E0216A430700EBF044 /* newVideo.mov in Resources */ = {isa = PBXBuildFile; fileRef = E5B4A6DF216A430700EBF044 /* newVideo.mov */; };
 		E5B4A6E2216A525500EBF044 /* AVPLayerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B4A6E1216A525500EBF044 /* AVPLayerExtension.swift */; };
 		E5B4A6E4216A574C00EBF044 /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B4A6E3216A574C00EBF044 /* SignUpController.swift */; };
+		E5B6F116217D49AC004E691B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6F115217D49AC004E691B /* HomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +85,7 @@
 		E5B4A6DF216A430700EBF044 /* newVideo.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = newVideo.mov; sourceTree = "<group>"; };
 		E5B4A6E1216A525500EBF044 /* AVPLayerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVPLayerExtension.swift; sourceTree = "<group>"; };
 		E5B4A6E3216A574C00EBF044 /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
+		E5B6F115217D49AC004E691B /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		EFA7B64FA5C1CE67D3D7FEE2 /* Pods_Happy_Moments.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Happy_Moments.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -163,6 +165,7 @@
 		E5B4A693216A32CD00EBF044 /* Happy Moments */ = {
 			isa = PBXGroup;
 			children = (
+				E5B6F114217D4993004E691B /* Home */,
 				E5B4A6D0216A39F900EBF044 /* Extensions */,
 				E5B4A6CB216A358900EBF044 /* Login */,
 				E5B4A6C8216A34DC00EBF044 /* Main */,
@@ -226,6 +229,14 @@
 				E5B4A6E1216A525500EBF044 /* AVPLayerExtension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E5B6F114217D4993004E691B /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				E5B6F115217D49AC004E691B /* HomeViewController.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -451,6 +462,7 @@
 				E5B4A6DC216A3A1300EBF044 /* CustomImageView.swift in Sources */,
 				E51DA981216C440B009D8237 /* LoginController.swift in Sources */,
 				E5B4A6D9216A3A1300EBF044 /* UIAnchor.swift in Sources */,
+				E5B6F116217D49AC004E691B /* HomeViewController.swift in Sources */,
 				E5B4A6CA216A34F200EBF044 /* MainController.swift in Sources */,
 				E5B4A6DD216A3A1300EBF044 /* UIColor.swift in Sources */,
 				E5B4A6E2216A525500EBF044 /* AVPLayerExtension.swift in Sources */,

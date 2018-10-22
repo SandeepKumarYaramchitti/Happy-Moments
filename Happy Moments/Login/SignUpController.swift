@@ -52,7 +52,7 @@ class SignupController: UIViewController, UIImagePickerControllerDelegate, UINav
     }()
     //Controls the change state here
     @objc func handleTextInputChange(){
-        let isFormValid = emailTextField.text?.characters.count ?? 0 > 0 && userNameTextField.text?.characters.count ?? 0 > 0 && passwordTextField.text?.characters.count ?? 0 > 0
+        let isFormValid = emailTextField.text?.count ?? 0 > 0 && userNameTextField.text?.count ?? 0 > 0 && passwordTextField.text?.count ?? 0 > 0
         
         if isFormValid {
             signUpButton.isEnabled = true
@@ -122,9 +122,9 @@ class SignupController: UIViewController, UIImagePickerControllerDelegate, UINav
     //Create user using Firebase  - New Users can use this
     @objc func handleSignUp(){
         
-        guard let email = emailTextField.text, email.characters.count > 0  else {return}
-        guard let userName = userNameTextField.text, userName.characters.count > 0 else {return}
-        guard let password = passwordTextField.text, password.characters.count > 0 else {return}
+        guard let email = emailTextField.text, email.count > 0  else {return}
+        guard let userName = userNameTextField.text, userName.count > 0 else {return}
+        guard let password = passwordTextField.text, password.count > 0 else {return}
         
         Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
             if let err = error {
@@ -158,12 +158,10 @@ class SignupController: UIViewController, UIImagePickerControllerDelegate, UINav
                     }
                     print("Sucessfullt saved user info to DB.")
 //                    //Reset the UI to show the main tab bar controller - This is a follow up to be updated
-//                    guard let mainTabBarController = UIApplication.shared.keyWindow?.rootViewController as? MainController else {return}
-//                    self.dismiss(animated: true, completion: nil)
-                    
-                    guard let mainController = UIApplication.shared.keyWindow?.rootViewController as? MainController else {return}
-                    mainController.setDummyViewController()
+                    guard let mainTabBarController = UIApplication.shared.keyWindow?.rootViewController as? MainController else {return}
+                    mainTabBarController.setUpNavigationControllers();
                     self.dismiss(animated: true, completion: nil)
+                    
                 })
                 
             })

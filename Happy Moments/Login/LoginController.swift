@@ -46,7 +46,7 @@ class LoginController: UIViewController {
     
     //Controls the change state here
     @objc func handleTextInputChange(){
-        let isFormValid = emailTextField.text?.characters.count ?? 0 > 0 &&  passwordTextField.text?.characters.count ?? 0 > 0
+        let isFormValid = emailTextField.text?.count ?? 0 > 0 &&  passwordTextField.text?.count ?? 0 > 0
         
         if isFormValid {
             logInButton.isEnabled = true
