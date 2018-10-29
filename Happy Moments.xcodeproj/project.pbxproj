@@ -31,6 +31,7 @@
 		E5B4A6E2216A525500EBF044 /* AVPLayerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B4A6E1216A525500EBF044 /* AVPLayerExtension.swift */; };
 		E5B4A6E4216A574C00EBF044 /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B4A6E3216A574C00EBF044 /* SignUpController.swift */; };
 		E5B6F116217D49AC004E691B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6F115217D49AC004E691B /* HomeViewController.swift */; };
+		E5B6F11821853E17004E691B /* GradientTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6F11721853E17004E691B /* GradientTabBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +87,7 @@
 		E5B4A6E1216A525500EBF044 /* AVPLayerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVPLayerExtension.swift; sourceTree = "<group>"; };
 		E5B4A6E3216A574C00EBF044 /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
 		E5B6F115217D49AC004E691B /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		E5B6F11721853E17004E691B /* GradientTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientTabBarController.swift; sourceTree = "<group>"; };
 		EFA7B64FA5C1CE67D3D7FEE2 /* Pods_Happy_Moments.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Happy_Moments.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -227,6 +229,7 @@
 				E5B4A6D6216A3A1300EBF044 /* UIColor.swift */,
 				E5B4A6D4216A3A1200EBF044 /* UIView+Gradient.swift */,
 				E5B4A6E1216A525500EBF044 /* AVPLayerExtension.swift */,
+				E5B6F11721853E17004E691B /* GradientTabBarController.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -460,6 +463,7 @@
 				E5B4A6DB216A3A1300EBF044 /* UIView+Gradient.swift in Sources */,
 				E5B4A6DE216A3A1300EBF044 /* Colors.swift in Sources */,
 				E5B4A6DC216A3A1300EBF044 /* CustomImageView.swift in Sources */,
+				E5B6F11821853E17004E691B /* GradientTabBarController.swift in Sources */,
 				E51DA981216C440B009D8237 /* LoginController.swift in Sources */,
 				E5B4A6D9216A3A1300EBF044 /* UIAnchor.swift in Sources */,
 				E5B6F116217D49AC004E691B /* HomeViewController.swift in Sources */,

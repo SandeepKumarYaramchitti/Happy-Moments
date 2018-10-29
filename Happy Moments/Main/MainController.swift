@@ -16,6 +16,16 @@ class MainController:  UITabBarController, UITabBarControllerDelegate {
         
         super.viewDidLoad()
         self.delegate = self
+        //Gradient Style Later
+//        let layerGradient = CAGradientLayer()
+//        layerGradient.colors = [Colors.logoRedColor.cgColor, Colors.logoBlueColor.cgColor]
+//        layerGradient.startPoint = CGPoint(x: 0, y: 0.5)
+//        layerGradient.endPoint = CGPoint(x: 1, y: 0.5)
+//        layerGradient.frame = CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height)
+//        self.tabBar.layer.addSublayer(layerGradient)
+        
+//        UITabBar.appearance().barTintColor = UIColor.black
+//        tabBar.isTranslucent = false
         
         if Auth.auth().currentUser == nil {
             DispatchQueue.main.async {
@@ -24,44 +34,62 @@ class MainController:  UITabBarController, UITabBarControllerDelegate {
                 let navController = UINavigationController(rootViewController: signUpController)
                 self.present(navController, animated: true, completion: nil)
             }
-            return
+//            return
         }
         
+        print("Executing the Navigation Controller.....")
         setUpNavigationControllers()
         
     }
     
+
+    
     func setUpNavigationControllers() {
         
-        //Home Profile Controller
-        let homeProfileViewController = temlateNavContorller(unselectedImage: #imageLiteral(resourceName: "home_unselected"), selectedImage: #imageLiteral(resourceName: "home_selected"), rootViewController: HomeViewController(collectionViewLayout: UICollectionViewFlowLayout()))
+        self.transParentTabBar()
+        //New Feeds Controller
+        let newFeedViewController = temlateNavContorller(unselectedImage: #imageLiteral(resourceName: "MySpace-UnSelected").withRenderingMode(.alwaysOriginal), selectedImage: #imageLiteral(resourceName: "MySpace-Selected").withRenderingMode(.alwaysOriginal), titleName: "MySpace", unselectedColor: Colors.unselectedColor, selectedColor: Colors.selectedTabBarColor, rootViewController: HomeViewController(collectionViewLayout: UICollectionViewFlowLayout()))
         
-        let searchProfileViewController = temlateNavContorller(unselectedImage: #imageLiteral(resourceName: "search_unselected"), selectedImage: #imageLiteral(resourceName: "search_selected"), rootViewController: HomeViewController(collectionViewLayout: UICollectionViewFlowLayout()))
+        let exploreViewController = temlateNavContorller(unselectedImage: #imageLiteral(resourceName: "Explore-Unselected").withRenderingMode(.alwaysOriginal), selectedImage: #imageLiteral(resourceName: "Explore-Selected").withRenderingMode(.alwaysOriginal), titleName: "Explore", unselectedColor: Colors.unselectedColor, selectedColor: Colors.selectedTabBarColor, rootViewController: HomeViewController(collectionViewLayout: UICollectionViewFlowLayout()))
         
-        let photoSelectionContorller = temlateNavContorller(unselectedImage: #imageLiteral(resourceName: "home_unselected"), selectedImage: #imageLiteral(resourceName: "home_selected"), rootViewController: HomeViewController(collectionViewLayout: UICollectionViewFlowLayout()))
+        let addPhotoViewController = temlateNavContorller(unselectedImage: #imageLiteral(resourceName: "Add-Photo-Selected").withRenderingMode(.alwaysOriginal), selectedImage: #imageLiteral(resourceName: "Add-Photo-Selected").withRenderingMode(.alwaysOriginal), titleName: "SharePhoto", unselectedColor: Colors.redPhotoColor, selectedColor: Colors.redPhotoColor, rootViewController: HomeViewController(collectionViewLayout: UICollectionViewFlowLayout()))
         
-        let layout = UICollectionViewFlowLayout()
-        let userProfileViewController = HomeViewController(collectionViewLayout: layout)
-        let userProfileNavController = UINavigationController(rootViewController: userProfileViewController)
-        userProfileNavController.tabBarItem.image = #imageLiteral(resourceName: "profile_unselected")
-        userProfileNavController.tabBarItem.title = "user"
-        tabBar.tintColor = UIColor.red
-        viewControllers = [homeProfileViewController, searchProfileViewController, photoSelectionContorller, userProfileNavController]
+        let notificationViewController = temlateNavContorller(unselectedImage: #imageLiteral(resourceName: "Notification-Unselected").withRenderingMode(.alwaysOriginal), selectedImage: #imageLiteral(resourceName: "Notification-Selected").withRenderingMode(.alwaysOriginal), titleName: "Notification", unselectedColor: Colors.unselectedColor, selectedColor: Colors.selectedTabBarColor, rootViewController: HomeViewController(collectionViewLayout: UICollectionViewFlowLayout()))
+        
+        let userPofileViewController = temlateNavContorller(unselectedImage: #imageLiteral(resourceName: "User-Unselected").withRenderingMode(.alwaysOriginal), selectedImage: #imageLiteral(resourceName: "User-Selected").withRenderingMode(.alwaysOriginal), titleName: "User", unselectedColor: Colors.unselectedColor, selectedColor: Colors.selectedTabBarColor, rootViewController: HomeViewController(collectionViewLayout: UICollectionViewFlowLayout()))
+        
+        viewControllers = [newFeedViewController, exploreViewController, addPhotoViewController, notificationViewController, userPofileViewController]
         guard let items = tabBar.items else {return}
         for item in items {
-            item.imageInsets = UIEdgeInsets(top: 3, left: 0, bottom: -3, right: 0)
+            item.imageInsets = UIEdgeInsets(top: 4, left: 0, bottom: -4, right: 0)
         }
         
     }
     
-    fileprivate func temlateNavContorller(unselectedImage: UIImage?, selectedImage: UIImage,
-                                          rootViewController: UIViewController = UIViewController()) -> UINavigationController {
+    fileprivate func temlateNavContorller(unselectedImage: UIImage?, selectedImage: UIImage, titleName: String, unselectedColor: UIColor?, selectedColor: UIColor?,rootViewController: UIViewController = UIViewController()) -> UINavigationController {
         let ProfileViewController = rootViewController
         let NavViewContorller = UINavigationController(rootViewController: ProfileViewController)
+        self.tabBar.unselectedItemTintColor = unselectedColor
         NavViewContorller.tabBarItem.image = unselectedImage
-        NavViewContorller.tabBarItem.title = "Home"
-//        NavViewContorller.tabBarItem.selectedImage = selectedImage
-//        NavViewContorller.tabBarItem.title = "Homes"
+        NavViewContorller.tabBarItem.selectedImage = selectedImage
+        NavViewContorller.tabBarItem.title = titleName
+        self.tabBar.tintColor = selectedColor
         return NavViewContorller
     }
+    
+    fileprivate func transParentTabBar() {
+        let transperentBlackColor = UIColor(displayP3Red: 225, green: 225, blue: 225, alpha: 1)
+        let rect = CGRect(x: 0, y: 0, width: 1, height: 1)
+        UIGraphicsBeginImageContextWithOptions(rect.size, false, 0.0)
+        transperentBlackColor.setFill()
+        UIRectFill(rect)
+        if let image = UIGraphicsGetImageFromCurrentImageContext() {
+            tabBar.backgroundImage = image
+        }
+        UIGraphicsEndImageContext()
+    }
+    
+
+    
 }
+
